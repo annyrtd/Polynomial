@@ -14,9 +14,7 @@ public class Main {
             for (int i = 0; i < N; i++) {
                 A[i] = sc.nextInt();
             }
-            for (int i = 0; i < N; i++) {
-                System.out.println(A[i] + " ");
-            }
+            Polynomial polynomial = new Polynomial(A);
         } catch (FileNotFoundException e) {
             System.out.println("File cannot be found!");
         } catch (InputMismatchException e) {
