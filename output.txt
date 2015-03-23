@@ -1,0 +1,2 @@
+The value of polynomial in point x = 5: 32.
+The value of polynomial differential in point x = 5: 12.
