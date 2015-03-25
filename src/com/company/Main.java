@@ -17,17 +17,7 @@ public class Main {
             }
             int x = sc.nextInt();
             Polynomial polynomial = new Polynomial(A, N);
-            File myFile = new File(args[1]);
-            if (myFile.exists()) {
-                myFile.delete();
-                myFile.createNewFile();
-            }
-            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(args[1], true)));
-            out.write("The value of polynomial in point x = " + x + ": "
-                    + polynomial.calculatePolynomialValue(x) + ".\n");
-            out.write("The value of polynomial differential in point x = " + x + ": "
-                    + polynomial.calculatePolynomialDiffValue(x) + ".\n");
-            out.flush();
+            writeToFile(args[1], polynomial, x);
         } catch (FileNotFoundException e) {
             System.out.println("File cannot be found!");
         } catch (InputMismatchException e) {
@@ -35,15 +25,23 @@ public class Main {
         } catch (IOException e) {
             System.out.println("A mistake while writing file!");
         } catch (NoSuchElementException e) {
-            System.out.println("No such element in file!");
+            System.out.println("Not enough elements in file!");
         }
     }
 
-
-
-
-
-
-
-
+    /**
+     * This function writes the result of calculations to the file.
+     * @param name the name of the file.
+     * @param polynomial the polynomial which value and differential value it calculates.
+     * @param x the point in which the value should be calculated.
+     * @throws IOException
+     */
+    public static void writeToFile (String name, Polynomial polynomial, int x) throws IOException {
+        FileWriter out = new FileWriter(name, false);
+        int value = polynomial.calculatePolynomialValue(x);
+        int difValue = polynomial.calculatePolynomialDiffValue(x);
+        out.write("The value of the polynomial in the point x = " + x + ": " + value + ".\n");
+        out.write("The value of the polynomial differential in the point x = " + x + ": " + difValue + ".\n");
+        out.flush();
+    }
 }

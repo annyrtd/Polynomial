@@ -2,6 +2,7 @@ package com.company;
 
 /**
  * Created by annyrtd on 23.03.15.
+ * Class that describes a polynomial.
  */
 public class Polynomial {
     /** An array with polynomial coefficients. */
@@ -26,7 +27,7 @@ public class Polynomial {
 
     /**
      * This function calculates value of the polynomial in a point x.
-     * @param x the point in which value should be calculated.
+     * @param x the point in which the value should be calculated.
      * @return the function value.
      */
     public int calculatePolynomialValue(int x) {
@@ -37,6 +38,11 @@ public class Polynomial {
         return temp;
     }
 
+    /**
+     * This function calculates value of the polynomial differential in a point x.
+     * @param x the point in which the value should be calculated.
+     * @return the differential value.
+     */
     public  int calculatePolynomialDiffValue(int x) {
         int temp = 0;
         for  (int i = 1; i <= N; i++) {
