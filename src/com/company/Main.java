@@ -11,11 +11,11 @@ public class Main {
         try {
             Scanner sc = new Scanner(new File(args[0]));
             int N = sc.nextInt();
-            int[] A = new int[N + 1];
+            double[] A = new double[N + 1];
             for (int i = 0; i < (N + 1); i++) {
-                A[i] = sc.nextInt();
+                A[i] = sc.nextDouble();
             }
-            int x = sc.nextInt();
+            double x = sc.nextDouble();
             Polynomial polynomial = new Polynomial(A, N);
             writeToFile(args[1], polynomial, x);
         } catch (FileNotFoundException e) {
@@ -36,10 +36,10 @@ public class Main {
      * @param x the point in which the value should be calculated.
      * @throws IOException
      */
-    public static void writeToFile (String name, Polynomial polynomial, int x) throws IOException {
+    public static void writeToFile (String name, Polynomial polynomial, double x) throws IOException {
         FileWriter out = new FileWriter(name, false);
-        int value = polynomial.calculatePolynomialValue(x);
-        int difValue = polynomial.calculatePolynomialDiffValue(x);
+        double value = polynomial.calculatePolynomialValue(x);
+        double difValue = polynomial.calculatePolynomialDiffValue(x);
         out.write("The value of the polynomial in the point x = " + x + ": " + value + ".\n");
         out.write("The value of the polynomial differential in the point x = " + x + ": " + difValue + ".\n");
         out.flush();

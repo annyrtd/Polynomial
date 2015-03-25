@@ -6,7 +6,7 @@ package com.company;
  */
 public class Polynomial {
     /** An array with polynomial coefficients. */
-    private int[] array;
+    private double[] array;
 
     /** Polynomial degree. */
     private int N;
@@ -20,7 +20,7 @@ public class Polynomial {
      * @param array an array that should be added.
      * @param n polynomial degree.
      */
-    public Polynomial(int[] array, int n) {
+    public Polynomial(double[] array, int n) {
         this.array = array;
         N = n;
     }
@@ -30,8 +30,8 @@ public class Polynomial {
      * @param x the point in which the value should be calculated.
      * @return the function value.
      */
-    public int calculatePolynomialValue(int x) {
-        int temp = 0;
+    public double calculatePolynomialValue(double x) {
+        double temp = 0;
         for  (int i = 0; i <= N; i++) {
             temp += array[i] * java.lang.Math.pow(x, i);
         }
@@ -43,8 +43,8 @@ public class Polynomial {
      * @param x the point in which the value should be calculated.
      * @return the differential value.
      */
-    public  int calculatePolynomialDiffValue(int x) {
-        int temp = 0;
+    public  double calculatePolynomialDiffValue(double x) {
+        double temp = 0;
         for  (int i = 1; i <= N; i++) {
             temp += array[i] * i *  java.lang.Math.pow(x, i - 1);
         }

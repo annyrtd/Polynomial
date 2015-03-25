@@ -1,2 +1,2 @@
-The value of the polynomial in the point x = 7: 15.
-The value of the polynomial differential in the point x = 7: 2.
+The value of the polynomial in the point x = 7.0: 1534.0.
+The value of the polynomial differential in the point x = 7.0: 632.0.
